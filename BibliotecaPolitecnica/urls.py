@@ -20,10 +20,10 @@ from django.conf.urls.static import static
 from django.contrib.auth.views import logout_then_login
 from Aplicaciones.Modulo.views import LogInUser
 
-
 urlpatterns = [
-    path('', include('Aplicaciones.Modulo.urls')),
+    # path('', include('Aplicaciones.Modulo.urls')),
     path('admin/', admin.site.urls),
+    path('', LogInUser, name='login'),
     # path('accounts/login/', LogInUser, name = 'login'),
     # path('Logout/', logout_then_login, name='logout')
 ]
