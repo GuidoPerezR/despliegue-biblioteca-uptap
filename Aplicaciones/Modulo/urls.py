@@ -1,10 +1,11 @@
 from django.urls import path
-from .views import booksPage, bookDetail, bookRequest, adminView, adminBookDetail, adminDeleteBook, adminAddBook, adminRequestList
+from .views import booksPage, bookDetail, bookRequest, adminView, adminBookDetail, adminDeleteBook, adminAddBook, adminRequestList, LogInUser
 from django.contrib.auth.decorators import login_required
 
 app_name='modulo'
 urlpatterns = [
-    path('', booksPage, name='BooksPage'),
+    path('', LogInUser, name='LogInUser'),
+    path('BooksPage', booksPage, name='BooksPage'),
     path('BookDetail/<id>',bookDetail, name='BookDetail'),
     path('BookRequest/<id>', bookRequest, name='BookRequest'),
     path('AdminBooksPage/', login_required(adminView), name='AdminBooksPage'),
