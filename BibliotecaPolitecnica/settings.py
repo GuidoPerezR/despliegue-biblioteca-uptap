@@ -124,8 +124,8 @@ USE_I18N = True
 
 USE_TZ = True
 
-LOGIN_REDIRECT_URL = reverse_lazy('modulo:BooksPage')
-LOGOUT_REDIRECT_URL = reverse_lazy('modulo:login')
+# LOGIN_REDIRECT_URL = reverse_lazy('modulo:BooksPage')
+# LOGOUT_REDIRECT_URL = reverse_lazy('modulo:login')
 
 
 # Static files (CSS, JavaScript, Images)
