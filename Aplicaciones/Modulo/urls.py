@@ -5,8 +5,8 @@ from django.contrib.auth.views import logout_then_login
 
 app_name='modulo'
 urlpatterns = [
-    path('', booksPage, name='BooksPage'),
-    path('accounts/login/', LogInUser, name = 'login'),
+    path('booksPage', booksPage, name='BooksPage'),
+    path('', LogInUser, name = 'login'),
     path('Logout/', logout_then_login, name='logout'),
     path('BookDetail/<id>',bookDetail, name='BookDetail'),
     path('BookRequest/<id>', bookRequest, name='BookRequest'),
