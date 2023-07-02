@@ -8,7 +8,8 @@ from .forms import *
 from .models import *
 
 def LogInUser(request):
-    if request.method == 'GET':
+    return render(request, 'login.html')
+    """ if request.method == 'GET':
         return render(request, "logIn.html")
     elif request.method=='POST':
         username = request.POST.get('username')
@@ -22,7 +23,7 @@ def LogInUser(request):
                 login(request, user)
                 return redirect('modulo:BooksPage')
         else:
-            messages.success(request, 'Usuario o contraseña incorrectos')
+            messages.success(request, 'Usuario o contraseña incorrectos') """
 
 def LogOutUser(request):
     logout(request)
