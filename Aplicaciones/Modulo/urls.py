@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 
 app_name='modulo'
 urlpatterns = [
-    path('', LogInUser, name='LogInUser'),
+    path('', LogInUser, name='login'),
     path('BooksPage', booksPage, name='BooksPage'),
     path('BookDetail/<id>',bookDetail, name='BookDetail'),
     path('BookRequest/<id>', bookRequest, name='BookRequest'),
