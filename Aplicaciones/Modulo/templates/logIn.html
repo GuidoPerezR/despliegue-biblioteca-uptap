@@ -5,6 +5,7 @@
 
 {% block content %}
 {% include "BarraNavegacion.html" %}
+{% if request.user.is_authenticated %}
 <div class="logIn" style="background-image: url('{%static 'images/background.jpg'%}');">
 
     <div class="content-alert">
@@ -61,5 +62,6 @@
     </div>
 
 </div>
+{% endif %}
 {% include "footer.html" %}
 {% endblock %}
