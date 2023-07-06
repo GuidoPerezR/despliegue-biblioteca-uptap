@@ -8,7 +8,7 @@ from .forms import *
 from .models import *
 
 def LogInUser(request):
-    return render(request, 'login.html')
+    return render(request, 'logIn.html')
     """ if request.method == 'GET':
         return render(request, "logIn.html")
     elif request.method=='POST':
