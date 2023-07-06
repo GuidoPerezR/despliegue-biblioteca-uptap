@@ -1,26 +1,25 @@
-{% load static %}
-
-{% block content %}
-
-<div class=adminAddUser">
-    <div class="add-career-content">
-        <div class="add-user-form">
-            <div class="add-user-title">
-                <p>Añadir Carrera</p>
-            </div>
-            <form method="POST" class="user-form">
-                {% csrf_token %}
-                <div class="form-field">
-                    <p>Nombre</p>
-                    {{ career_form.nom_carrera }}
-                </div>
-                <div class="buttons-user-form">
-                    <div class="add-button">
-                        <button type="submit" class="primary-button button-agregar">Agregar</button>
-                    </div>
-                </div>
-            </form>
+{% load static %} {% block content %} {% if request.user.is_authenticated %}
+<div class="adminAddUser">
+  <div class="add-career-content">
+    <div class="add-user-form">
+      <div class="add-user-title">
+        <p>Añadir Carrera</p>
+      </div>
+      <form method="POST" class="user-form">
+        {% csrf_token %}
+        <div class="form-field">
+          <p>Nombre</p>
+          {{ career_form.nom_carrera }}
         </div>
+        <div class="buttons-user-form">
+          <div class="add-button">
+            <button type="submit" class="primary-button button-agregar">
+              Agregar
+            </button>
+          </div>
+        </div>
+      </form>
     </div>
+  </div>
 </div>
-{% endblock %}
+{% endif %} {% endblock %}
