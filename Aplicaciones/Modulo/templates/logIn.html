@@ -3,9 +3,8 @@
 
 {% block title %} Biblioteca Politecnica Iniciar Sesion {% endblock %}
 
-{% block content %}
+{% block content %}{% comment %} 
 {% include "BarraNavegacion.html" %}
-{% if !request.user.is_authenticated %}
 <div class="logIn" style="background-image: url('{%static 'images/background.jpg'%}');">
 
     <div class="content-alert">
@@ -62,6 +61,6 @@
     </div>
 
 </div>
-{% endif %}
-{% include "footer.html" %}
+{% include "footer.html" %} {% endcomment %}
+<h1>Hola Mundo</h1>
 {% endblock %}
