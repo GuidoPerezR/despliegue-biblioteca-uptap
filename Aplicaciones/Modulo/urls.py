@@ -6,7 +6,7 @@ from django.contrib.auth.views import logout_then_login
 
 app_name='modulo'
 urlpatterns = [
-    path('', views.LogInUser, name='login'),
+    path('', views.home, name='home'),
     path('BooksPage', views.booksPage, name='BooksPage'),
     # path('BookDetail/<id>',bookDetail, name='BookDetail'),
     # path('BookRequest/<id>', bookRequest, name='BookRequest'),

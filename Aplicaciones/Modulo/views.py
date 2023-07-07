@@ -7,6 +7,9 @@ from datetime import date, timedelta
 from .forms import *
 from .models import *
 
+def home(request):
+    return render(request, 'home.html', {})
+
 def LogInUser(request):
     if request.method=='POST':
         username = request.POST.get('username')
