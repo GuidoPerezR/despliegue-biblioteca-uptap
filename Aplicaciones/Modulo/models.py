@@ -29,7 +29,7 @@ class Libro(models.Model):
     idioma = models.CharField(max_length=30)
     editorial = models.CharField(max_length=50)
     paginas = models.PositiveIntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(3000)])
-    imagen = models.ImageField(upload_to='media/booksImages/')
+    imagen = models.ImageField(upload_to="MEDIA_URL")
     carrera = models.ForeignKey(Carrera, on_delete=models.CASCADE, null=True)
 
     def __str__(self):
