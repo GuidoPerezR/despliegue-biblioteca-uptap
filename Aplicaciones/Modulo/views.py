@@ -7,27 +7,21 @@ from datetime import date, timedelta
 from .forms import *
 from .models import *
 
-def home(request):
-    return render(request, 'home.html', {})
-
 def LogInUser(request):
-    try:
-        if request.method=='POST':
-            username = request.POST.get('username')
-            password = request.POST.get('password')
-            user = authenticate(username=username, password=password)
-            if user is not None:
-                if user.is_staff:
-                    login(request, user)
-                    return redirect('modulo:AdminBooksPage')
-                else:
-                    login(request, user)
-                    return redirect('modulo:BooksPage')
+    if request.method=='POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            if user.is_staff:
+                login(request, user)
+                return redirect('modulo:AdminBooksPage')
             else:
-                messages.success(request, 'Usuario o contraseña incorrectos')
-    except:
-        print("Ha ocurrio un error")
-        
+                login(request, user)
+                return redirect('modulo:BooksPage')
+        else:
+            messages.success(request, 'Usuario o contraseña incorrectos')
+
     return render(request, "logIn.html")
 
 def LogOutUser(request):
