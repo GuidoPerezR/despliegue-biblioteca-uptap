@@ -5,7 +5,6 @@
 
 {% block content %}
 {% include "BarraNavegacionAdmin.html" %}
-{% if request.user.is_authenticated %}
 <div class="Biblioteca">
 
     <div class="content-alert">
@@ -139,7 +138,6 @@
 
     </div>
 </div>
-{% endif %}
 <script>
     /*Programacion Slider*/ 
     const slider = document.getElementsByClassName('slider')
