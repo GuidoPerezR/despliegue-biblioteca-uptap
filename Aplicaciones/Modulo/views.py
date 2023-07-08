@@ -11,19 +11,23 @@ def home(request):
     return render(request, 'home.html', {})
 
 def LogInUser(request):
-    if request.method=='POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-        user = authenticate(username=username, password=password)
-        if user is not None:
-            if user.is_staff:
-                login(request, user)
-                return redirect('modulo:AdminBooksPage')
+    try:
+        if request.method=='POST':
+            username = request.POST.get('username')
+            password = request.POST.get('password')
+            user = authenticate(username=username, password=password)
+            if user is not None:
+                if user.is_staff:
+                    login(request, user)
+                    return redirect('modulo:AdminBooksPage')
+                else:
+                    login(request, user)
+                    return redirect('modulo:BooksPage')
             else:
-                login(request, user)
-                return redirect('modulo:BooksPage')
-        else:
-            messages.success(request, 'Usuario o contraseña incorrectos')
+                messages.success(request, 'Usuario o contraseña incorrectos')
+    except:
+        print("Ha ocurrio un error")
+        
     return render(request, "logIn.html")
 
 def LogOutUser(request):
