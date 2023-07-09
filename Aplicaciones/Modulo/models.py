@@ -1,4 +1,5 @@
 from django.core.validators import MaxValueValidator, MinValueValidator 
+from django.core.files.storage import default_storage
 from django.db import models
 
 class Carrera(models.Model):
@@ -29,7 +30,7 @@ class Libro(models.Model):
     idioma = models.CharField(max_length=30)
     editorial = models.CharField(max_length=50)
     paginas = models.PositiveIntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(3000)])
-    imagen = models.ImageField(upload_to='images/')
+    imagen = models.ImageField(upload_to='images/', storage=default_storage)
     carrera = models.ForeignKey(Carrera, on_delete=models.CASCADE, null=True)
 
     def __str__(self):
